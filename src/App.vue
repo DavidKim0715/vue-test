@@ -1,9 +1,7 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+  <AppLayout>
+    <router-view />
+  </AppLayout>
 </template>
 
 <style lang="scss">
@@ -28,3 +26,9 @@
   }
 }
 </style>
+<script>
+import AppLayout from "@/layouts/AppLayout";
+export default {
+  components: { AppLayout }
+}
+</script>

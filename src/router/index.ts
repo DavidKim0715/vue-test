@@ -1,21 +1,39 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
+import axios from 'axios';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: '/',
+    name: 'Home',
+    component: () => import(/* webpackChunkName: "HomePage" */ '@/views/user/HomePage.vue'),
+    meta: {
+      layout: 'AppLayoutDefault'
+    },
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path : '/myInfo',
+    name : 'MyInfo',
+    component : () => import(/* webpackChunkName: "MyInfoPage" */ '@/views/user/UserInfoPage.vue'),
+    meta: {
+      layout: 'AppLayoutDefault'
+    },
   },
+  {
+    path : '/config',
+    name : 'myInfo',
+    component : () => import(/* webpackChunkName: "ConfigPage" */ '@/views/sys/ConfigPage.vue'),
+    meta: {
+      layout: 'AppLayoutEmpty'
+    },
+  }
+
+  // {
+  //   path: '/:catchAll(.*)*',
+  //   component: () => import('views/Error404.vue'),
+  //   meta:{
+  //     layout: "AppLayoutEmpty",
+  //   }
+  // },
 ];
 
 const router = createRouter({

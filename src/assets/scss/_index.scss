@@ -1,0 +1,11 @@
+/*
+layouts : 웹페이지 전체를 구성하는 레이아웃에 대한 CSS
+pages : 로그인, 매인화면 등등 개별로 존재하는 화면에 대한 CSS
+templates : 여러 개의 Components로 구현된 해당 웹사이트에 특화된 템플릿에 대한 CSS
+components : 버튼, 인풋박스, 컨테이너 등등.. 개별 컴포넌트에 대한 CSS
+commons.scss : 웹사이트에 공통적으로 적용되는 CSS
+_index.scss : 위의 모든 SCSS를 한곳으로 모으는 CSS (단, variables.scss는 여기에 포함되지 않음)
+variables.scss : 모든 SCSS 파일에서 사용할 변수에 대한 정의만 작성(이 파일은 vue.config.js 또는 webpack.config.js에 적용함 )
+
+
+출처: https://ux.stories.pe.kr/256 [UX 공작소(Tistory)]*/
