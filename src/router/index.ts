@@ -20,8 +20,16 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path : '/config',
-    name : 'myInfo',
+    name : 'Config',
     component : () => import(/* webpackChunkName: "ConfigPage" */ '@/views/sys/ConfigPage.vue'),
+    meta: {
+      layout: 'AppLayoutEmpty'
+    },
+  },
+  {
+    path : '/signIn',
+    name : 'SignIn',
+    component : () => import(/* webpackChunkName: "SignInPage" */ '@/views/user/SignInPage.vue'),
     meta: {
       layout: 'AppLayoutEmpty'
     },
@@ -42,3 +50,4 @@ const router = createRouter({
 });
 
 export default router;
+

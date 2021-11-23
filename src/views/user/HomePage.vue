@@ -32,30 +32,6 @@ const HomePage = defineComponent({
   components:{
 
   },
-  props: {
-    name: String
-  },
-  setup(props, context) {
-    const store = useStore()
-
-
-
-    /*
-    const store = useStore()
-        const setModal = () => {
-          store.commit(MutationType.SetCreateModal, true)
-        }
-        const showCreateModal = computed(() => store.state.showCreateModal)
-        const showEditModal = computed(() => store.state.showEditModal)
-        const editTaskId = computed(() => store.state.editModalTaskId)
-        const showTaskModal = computed(() => store.state.showTaskModal)
-        const showTaskId = computed(()=> store.state.showTaskId)
-        const tasks = computed(() => store.state.tasks)
-
-        return { showCreateModal, setModal, tasks, showEditModal,showTaskModal, editTaskId, showTaskId }
-     */
-  }
-
 })
 export default HomePage
 </script>

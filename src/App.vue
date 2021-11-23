@@ -4,6 +4,13 @@
   </AppLayout>
 </template>
 
+<script>
+import AppLayout from "@/layouts/AppLayout";
+export default {
+  components: { AppLayout }
+}
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -26,9 +33,3 @@
   }
 }
 </style>
-<script>
-import AppLayout from "@/layouts/AppLayout";
-export default {
-  components: { AppLayout }
-}
-</script>

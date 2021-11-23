@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <ul>
+    <ul class="nav-box">
       <li class="nav-item">
         <router-link class="nav-link" to="/">Home</router-link>
       </li>
@@ -10,12 +10,19 @@
       <li class="nav-item">
         <router-link class="nav-link" to="/config">Configuration</router-link>
       </li>
+      <li class="nav-item">
+        <router-link class="nav-link" to="/signIn">Login</router-link>
+      </li>
     </ul>
   </nav>
 </template>
 
 <script>
-export default {
-  name: "NavBar"
-};
+import { defineComponent } from "vue";
+const NavBar = defineComponent({
+  name : "NavBar",
+})
+export default NavBar
 </script>
+<style lang="scss" scoped>
+</style>
