@@ -22,7 +22,8 @@ const NormalButton = defineComponent({
     })
     //methods
     const onSubmitClick= () => {
-      alert('로그인에 실패하였습니다')
+      // alert('로그인에 실패하였습니다')
+      return 0
     }
     //computed
 

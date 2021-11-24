@@ -17,7 +17,7 @@ const serviceStore ={
     setUser(state : any, user : any){
       state.user = user
     },
-    setStorageToken(state : any, token : string) {
+    setToken(state : any, token : string) {
       state.accessToken = localStorage.getItem(token);
     },
   },

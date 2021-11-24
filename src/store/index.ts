@@ -1,10 +1,12 @@
 import { createStore } from "vuex";
-// import { adminStore } from "@/store/modules/adminStore";
-import serviceStore from "@/store/modules/serviceStore";
+import { createNamespacedHelpers } from 'vuex'
+import serviceStore from "@/store/modules/service/serviceStore";
 
-export default createStore({
+const { mapState, mapActions } = createNamespacedHelpers('./module')
+
+const store =  createStore({
   modules: {
-     // adminStore : adminStore,
-    serviceStore : serviceStore
+    service : serviceStore
   },
 });
+export default store

@@ -1,17 +1,15 @@
 <template>
-  <form class="login_wrap" @submit.prevent="login">
-    <div class="id_pw_wrap">
-      <span>
-        id
-        <input class="id_line" v-model="username" placeholder="username"/>
-      </span>
-      <span>
-        password
-        <input class="pw_line" v-model="password" placeholder="password"/>
-      </span>
-    </div>
-
-
+  <form class="login_wrap" @submit="onClickSubmit">
+    <ul class="id_pw_wrap">
+      <li>
+        <span>id</span>
+        <input class="id_line" v-model="userId" placeholder="username"/>
+      </li>
+      <li>
+        <span>password</span>
+        <input class="pw_line" v-model="pwd" placeholder="password"/>
+      </li>
+    </ul>
     <div class="btn_login_wrap">
       <NormalButton msg="로그인" />
     </div>
@@ -24,22 +22,24 @@ import NormalButton from "../button/NormalButton";
 
 const LoginInput = defineComponent({
   name: "LoginInput",
-  components : { NormalButton  },
+  components : { NormalButton },
   props :{},
   emits : {},
   setup(props){
     //variables
-    const uid = ''
+    const userId = ''
     const pwd = ''
     const event = computed(()=>{
       return 0
     })
     //methods
-
+    const onClickSubmit = () => {
+      return 0
+    }
     //computed
 
     //life-cycle
-    return {} // template에 사용될 getter
+    return {onClickSubmit, userId, pwd} // template에 사용될 getter
   }
 })
 export default LoginInput
