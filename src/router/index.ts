@@ -23,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
     name : 'Config',
     component : () => import(/* webpackChunkName: "ConfigPage" */ '@/views/sys/ConfigPage.vue'),
     meta: {
-      layout: 'AppLayoutEmpty'
+      layout: 'AppLayoutDefault'
     },
   },
   {
@@ -31,15 +31,55 @@ const routes: Array<RouteRecordRaw> = [
     name : 'SignIn',
     component : () => import(/* webpackChunkName: "SignInPage" */ '@/views/user/SignInPage.vue'),
     meta: {
-      layout: 'AppLayoutEmpty'
+      layout: 'AppLayoutDefault'
     },
-  }
-
+  },
+  {
+    path : '/:pathMatch(.*)*',
+    name : 'Error',
+    component: () => import('@/views/Error404Page.vue'),
+    meta:{
+      layout: 'AppLayoutEmpty',
+    }
+  },
   // {
-  //   path: '/:catchAll(.*)*',
-  //   component: () => import('views/Error404.vue'),
+  //   path: '/',
+  //   name: 'Home',
+  //   component: () => import(/* webpackChunkName: "HomePage" */ '@/views/user/HomePage.vue'),
+  //   meta: {
+  //     layout: 'AppLayoutDefault'
+  //   },
+  // },
+  // {
+  //   path : '/myInfo',
+  //   name : 'MyInfo',
+  //   component : () => import(/* webpackChunkName: "MyInfoPage" */ '@/views/user/UserInfoPage.vue'),
+  //   meta: {
+  //     layout: 'AppLayoutDefault'
+  //   },
+  // },
+  // {
+  //   path : '/config',
+  //   name : 'Config',
+  //   component : () => import(/* webpackChunkName: "ConfigPage" */ '@/views/sys/ConfigPage.vue'),
+  //   meta: {
+  //     layout: 'AppLayoutDefault'
+  //   },
+  // },
+  // {
+  //   path : '/signIn',
+  //   name : 'SignIn',
+  //   component : () => import(/* webpackChunkName: "SignInPage" */ '@/views/user/SignInPage.vue'),
+  //   meta: {
+  //     layout: 'AppLayoutDefault'
+  //   },
+  // },
+  // {
+  //   path : '/:pathMatch(.*)*',
+  //   name : 'Error',
+  //   component: () => import('@/views/Error404Page.vue'),
   //   meta:{
-  //     layout: "AppLayoutEmpty",
+  //     layout: 'AppLayoutEmpty',
   //   }
   // },
 ];

@@ -1,18 +1,18 @@
 <template>
   <section>
     <h2>Login</h2>
-    <CommonInput />
+    <LoginInput />
   </section>
 </template>
 
 <script>
 
 import { computed, defineComponent, reactive, toRefs } from "vue";
-import CommonInput from "../../components/input/CommonInput";
+import LoginInput from "../../components/input/LoginInput";
 
 const SignInPage = defineComponent({
   name: "SignInPage",
-  components : { CommonInput },
+  components : { LoginInput },
   props :{},
   emits : {},
   setup(props){

@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <img src="@/assets/logo.png" alt="this is page footer">
+    <p>footer</p>
   </footer>
 </template>
 

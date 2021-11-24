@@ -1,4 +1,9 @@
 .nav-box{
-  display: flex;
-  justify-content: center;
+  border: #42b983 solid 1px;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+  .nav-item{
+    margin-left: 10px;
+  }
 }

@@ -1,5 +1,16 @@
 // 버튼 관련 변수
-
+.btn_normal{
+  border-radius: 6px;
+  border: solid 1px rgba(0,0,0,.15);
+  background-color: #03c75a;
+  padding: 17px 0 15px;
+  .btn_text{
+    color: #fff;
+    line-height: 26px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+}
 // … 버튼 관련 include
 // - 믹스인
 // - 플레이스홀더

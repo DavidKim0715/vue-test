@@ -2,16 +2,13 @@
   <nav>
     <ul class="nav-box">
       <li class="nav-item">
-        <router-link class="nav-link" to="/">Home</router-link>
+        <router-link class="nav-link" to="/myInfo">내 정보</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/myInfo">MyPage</router-link>
+        <router-link class="nav-link" to="/config">설정</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/config">Configuration</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link class="nav-link" to="/signIn">Login</router-link>
+        <router-link class="nav-link" to="/signIn">로그인</router-link>
       </li>
     </ul>
   </nav>

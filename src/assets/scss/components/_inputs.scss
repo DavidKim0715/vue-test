@@ -1,0 +1,12 @@
+.login_wrap{
+  margin: 0 auto;
+  .id_pw_wrap{
+    display: inline-grid;
+    .id_line{
+      margin-bottom: 10px;
+    }
+    .pw_line{
+      margin-bottom: 10px;
+    }
+  }
+}

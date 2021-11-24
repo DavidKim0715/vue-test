@@ -44,10 +44,12 @@
 'layout/sidebar',
  'layout/forms';
 
-@import'components/buttons',
+@import
+'components/buttons',
 'components/carousel',
 'components/cover',
-'components/dropdown';
+'components/dropdown',
+'components/inputs';
 
 @import'pages/home',
 'pages/contact';
