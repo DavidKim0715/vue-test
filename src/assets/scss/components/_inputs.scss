@@ -2,6 +2,12 @@
   margin: 0 auto;
   .id_pw_wrap{
     display: inline-grid;
+    .id_label{
+      padding: 0 23px;
+    }
+    .pwd_label{
+      padding: 0 8px;
+    }
     .id_line{
       margin-bottom: 10px;
     }

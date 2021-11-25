@@ -21,5 +21,8 @@ const serviceStore ={
       state.accessToken = localStorage.getItem(token);
     },
   },
+  actions : {
+    // LOGIN ({commit}, )
+  }
 }
 export default serviceStore

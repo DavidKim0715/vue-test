@@ -1,7 +1,19 @@
 <template>
   <section>
     <h2>Login</h2>
-    <LoginInput />
+    <form class="login_wrap" @submit.prevent="submitAuth">
+      <LoginInput @user-info="getUserInfo"/>
+      <div class="btn_login_register_wrap" >
+        <CommonButton
+          msg="로그인"
+          type="submit"
+          @click="submitAuth"
+        />
+        <CommonButton
+          msg="가입하기"
+        />
+      </div>
+    </form>
   </section>
 </template>
 
@@ -9,13 +21,15 @@
 
 import { computed, defineComponent, reactive, toRefs } from "vue";
 import { createNamespacedHelpers } from 'vuex';
-const { mapGetters, mapMutations } = createNamespacedHelpers('service');
+const { mapGetters, mapMutations } = createNamespacedHelpers("service");
 
 import LoginInput from "../../components/input/LoginInput";
+import CommonButton from "../../components/button/CommonButton";
+
 
 const SignInPage = defineComponent({
   name: "SignInPage",
-  components : { LoginInput },
+  components : { CommonButton, LoginInput  },
   props :{},
   computed: {
     ...mapGetters({
@@ -31,22 +45,24 @@ const SignInPage = defineComponent({
   },
   setup(props){
     //variables
-    const event = computed(()=>{
-      return 0
-    })
+
+    const userInfo = null
 
     // computed
     // method
-    const checkAuth = () =>{
-      return ;
+
+    const submitAuth = (data) => {
+      return 0
+    }
+
+    const getUserInfo = (info) =>{
+      this.userInfo = info
+      return
+
     }
     //life-cycle
-    return { }
+    return { submitAuth, getUserInfo }
   }
 })
 export default SignInPage
 </script>
-
-<style scoped>
-
-</style>

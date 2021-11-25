@@ -1,45 +1,46 @@
 <template>
-  <form class="login_wrap" @submit="onClickSubmit">
-    <ul class="id_pw_wrap">
-      <li>
-        <span>id</span>
-        <input class="id_line" v-model="userId" placeholder="username"/>
-      </li>
-      <li>
-        <span>password</span>
-        <input class="pw_line" v-model="pwd" placeholder="password"/>
-      </li>
-    </ul>
-    <div class="btn_login_wrap">
-      <NormalButton msg="로그인" />
-    </div>
-  </form>
+  <ul class="id_pw_wrap" @change="$emit('user-info',user)">
+    <li>
+      <label class="id_label">email</label>
+      <input
+        class="id_line"
+        placeholder="email"
+        type="email"
+        v-model="user.email"
+        required
+      />
+    </li>
+    <li>
+      <label class="pwd_label">password</label>
+      <input
+        class="pw_line"
+        placeholder="password"
+        type="password"
+        v-model="user.pwd"
+        required
+      />
+    </li>
+  </ul>
 </template>
 
 <script>
-import { computed, defineComponent } from "vue";
-import NormalButton from "../button/NormalButton";
+import { computed, defineComponent, onMounted, onUpdated, reactive, watch } from "vue";
 
 const LoginInput = defineComponent({
   name: "LoginInput",
-  components : { NormalButton },
+  components : {  },
   props :{},
-  emits : {},
-  setup(props){
+  setup(props,){
     //variables
-    const userId = ''
-    const pwd = ''
-    const event = computed(()=>{
-      return 0
-    })
+    const user= reactive({email : '', pwd: '' })
+
+    const onEmail = computed(()=> this.user.email)
+    const onPwd = computed(()=> this.user.pwd)
     //methods
-    const onClickSubmit = () => {
-      return 0
-    }
-    //computed
 
     //life-cycle
-    return {onClickSubmit, userId, pwd} // template에 사용될 getter
+
+    return { user, onEmail, onPwd} // template에 사용될 getter
   }
 })
 export default LoginInput
