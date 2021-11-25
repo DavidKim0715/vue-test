@@ -39,7 +39,7 @@ const SignInPage = defineComponent({
   },
   methods :{
     ...mapMutations({
-      setUser: 'setUser',
+      setUser: "setUser",
       setToken : 'setToken'
     }),
   },
