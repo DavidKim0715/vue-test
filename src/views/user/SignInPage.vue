@@ -21,7 +21,7 @@
 
 import { computed, defineComponent, reactive, toRefs } from "vue";
 import { createNamespacedHelpers } from 'vuex';
-const { mapGetters, mapMutations } = createNamespacedHelpers("service");
+const { mapGetters, mapMutations } = createNamespacedHelpers(" service");
 
 import LoginInput from "../../components/input/LoginInput";
 import CommonButton from "../../components/button/CommonButton";
@@ -47,21 +47,19 @@ const SignInPage = defineComponent({
     //variables
 
     const userInfo = null
-
     // computed
     // method
 
     const submitAuth = (data) => {
-      return 0
+      return
     }
 
     const getUserInfo = (info) =>{
-      this.userInfo = info
+      console.log(info)
       return
-
     }
     //life-cycle
-    return { submitAuth, getUserInfo }
+    return { submitAuth, userInfo, getUserInfo }
   }
 })
 export default SignInPage
