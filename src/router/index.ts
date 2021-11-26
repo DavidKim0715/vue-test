@@ -1,14 +1,13 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import axios from 'axios';
-
-
+import store from "@/store";
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
     component: () => import(/* webpackChunkName: "HomePage" */ '@/views/user/HomePage.vue'),
     meta: {
-      layout: 'AppLayoutDefault'
+      layout: 'AppLayoutDefault',
+      requiredAuth : false
     },
   },
   {
@@ -16,7 +15,8 @@ const routes: Array<RouteRecordRaw> = [
     name : 'MyInfo',
     component : () => import(/* webpackChunkName: "MyInfoPage" */ '@/views/user/UserInfoPage.vue'),
     meta: {
-      layout: 'AppLayoutDefault'
+      layout: 'AppLayoutDefault',
+      requiredAuth : true
     },
   },
   {
@@ -24,7 +24,8 @@ const routes: Array<RouteRecordRaw> = [
     name : 'Config',
     component : () => import(/* webpackChunkName: "ConfigPage" */ '@/views/sys/ConfigPage.vue'),
     meta: {
-      layout: 'AppLayoutDefault'
+      layout: 'AppLayoutDefault',
+      requiredAuth : false
     },
   },
   {
@@ -33,6 +34,7 @@ const routes: Array<RouteRecordRaw> = [
     component : () => import(/* webpackChunkName: "SignInPage" */ '@/views/user/SignInPage.vue'),
     meta: {
       layout: "AppLayoutDefault",
+      requiredAuth : false
     },
   },
   {
@@ -41,6 +43,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/Error404Page.vue'),
     meta:{
       layout: 'AppLayoutEmpty',
+      requiredAuth : false
     }
   },
 ];
@@ -49,19 +52,31 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
-// router.beforeEach(function(to,from, next) {
-// //   if(to.matched.some(function(routeInfo){
-// //     return routeInfo.meta.authRequired
-// //   })) {
-// //     //   if(isAuth){
-// //     //     next()
-// //     //   }else{
-// //     //     alert('로그인해야 접근 가능합니다')
-// //     //   }
-// //     // }else{
-// //     //   next()
-// //     // }
-// //   }
-// // })
-// //
-export default router;
+router.beforeEach(function(to,from, next) {
+  console.log(store.getters["auth/getAuthData"].token);
+  if(!store.getters["auth/getAuthData"].token){
+    const access_token = localStorage.getItem("access_token");
+    const refresh_token = localStorage.getItem("refresh_token");
+    if(access_token){
+      const data = {
+        access_token:access_token,
+        refresh_token:refresh_token
+      };
+      store.commit('service/setToken',data);
+    }
+  }
+  const auth = store.getters["service/isTokenActive"]
+
+  if(to.fullPath === "/"){
+    return next()
+  }
+  else if(auth && !to.meta.requiredAuth){
+    return next({path:"/myInfo"})
+  }
+  else if(!auth && to.meta.requiredAuth){
+    return next({path: '/signIn'})
+  }
+  return next()
+})
+
+export default router

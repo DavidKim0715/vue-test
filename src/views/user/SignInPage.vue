@@ -1,13 +1,12 @@
 <template>
   <section>
     <h2>Login</h2>
-    <form class="login_wrap" @submit.prevent="submitAuth">
+    <form class="login_wrap" @submit.prevent="submitLogin">
       <LoginInput @user-info="getUserInfo"/>
       <div class="btn_login_register_wrap" >
         <CommonButton
           msg="로그인"
           type="submit"
-          @click="submitAuth"
         />
         <CommonButton
           msg="가입하기"
@@ -19,9 +18,9 @@
 
 <script>
 
-import { computed, defineComponent, reactive, toRefs } from "vue";
+import { computed, defineComponent, reactive, toRefs, watch } from "vue";
 import { createNamespacedHelpers } from 'vuex';
-const { mapGetters, mapMutations } = createNamespacedHelpers(" service");
+const { mapGetters, mapActions } = createNamespacedHelpers("auth");
 
 import LoginInput from "../../components/input/LoginInput";
 import CommonButton from "../../components/button/CommonButton";
@@ -33,33 +32,32 @@ const SignInPage = defineComponent({
   props :{},
   computed: {
     ...mapGetters({
-      getUser : 'getUser',
-      getToken : 'getToken'
+      getLoginStatus : 'getLoginStatus'
     }),
   },
   methods :{
-    ...mapMutations({
-      setUser: "setUser",
-      setToken : 'setToken'
+    ...mapActions({
+      actionLogin : 'LOGIN',
     }),
   },
   setup(props){
     //variables
-
-    const userInfo = null
-    // computed
-    // method
-
-    const submitAuth = (data) => {
-      return
-    }
+    let userInfo = null
 
     const getUserInfo = (info) =>{
-      console.log(info)
-      return
+      userInfo = info
     }
+    const submitLogin = async () =>{
+      await this.actionLogin(userInfo)
+      if(this.getLoginStatus === 'success'){
+        window.alert('로그인에 성공하셨습니다')
+      }else{
+        window.alert('로그인에 실패하셨습니다')
+      }
+    }
+
     //life-cycle
-    return { submitAuth, userInfo, getUserInfo }
+    return { userInfo, getUserInfo, submitLogin}
   }
 })
 export default SignInPage
