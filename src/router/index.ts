@@ -4,7 +4,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "HomePage" */ '@/views/user/HomePage.vue'),
+    component: () => import(/* webpackChunkName: "HomePage" */ '@/views/main/HomePage.vue'),
     meta: {
       layout: 'AppLayoutDefault',
       requiredAuth : false
@@ -13,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path : '/myInfo',
     name : 'MyInfo',
-    component : () => import(/* webpackChunkName: "MyInfoPage" */ '@/views/user/UserInfoPage.vue'),
+    component : () => import(/* webpackChunkName: "MyInfoPage" */ '@/views/UserInfoPage.vue'),
     meta: {
       layout: 'AppLayoutDefault',
       requiredAuth : true
@@ -22,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path : '/config',
     name : 'Config',
-    component : () => import(/* webpackChunkName: "ConfigPage" */ '@/views/sys/ConfigPage.vue'),
+    component : () => import(/* webpackChunkName: "ConfigPage" */ '@/views/ConfigPage.vue'),
     meta: {
       layout: 'AppLayoutDefault',
       requiredAuth : false
@@ -31,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path : '/signIn',
     name : 'SignIn',
-    component : () => import(/* webpackChunkName: "SignInPage" */ '@/views/user/SignInPage.vue'),
+    component : () => import(/* webpackChunkName: "SignInPage" */ '@/views/login/SignInPage.vue'),
     meta: {
       layout: "AppLayoutDefault",
       requiredAuth : false
