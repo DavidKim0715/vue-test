@@ -1,13 +1,14 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch } from "vue";
 import { createNamespacedHelpers } from 'vuex';
-import LoginField from "../../components/scoped/input/LoginField";
 import LoginSubmitButton from "@/components/scoped/button/LoginSubmitButton.vue";
+import LoginField from "@/components/scoped/input/LoginField.vue";
+import { IUserLogin } from "@/views/login/index";
 const { mapGetters, mapActions } = createNamespacedHelpers("auth");
 
 const SignInPage = defineComponent({
   name: "SignInPage",
-  components : { LoginSubmitButton, LoginField },
+  components : { LoginField, LoginSubmitButton,  },
   props :{},
   computed: {
     ...mapGetters({
@@ -21,18 +22,18 @@ const SignInPage = defineComponent({
   },
   setup(props){
     //variables
-    let userInfo = null
+    let userInfo  = {}
 
-    const getUserInfo = (info) =>{
+    const getUserInfo = (info : IUserLogin) =>{
       userInfo = info
     }
     const submitLogin = async () =>{
-      await this.actionLogin(userInfo)
-      if(this.getLoginStatus === 'success'){
-        window.alert('로그인에 성공하셨습니다')
-      }else{
-        window.alert('로그인에 실패하셨습니다')
-      }
+      // await this.actionLogin(userInfo)
+      // if(this.getLoginStatus === 'success'){
+      //   window.alert('로그인에 성공하셨습니다')
+      // }else{
+      //   window.alert('로그인에 실패하셨습니다')
+      // }
     }
     //life-cycle
     return { userInfo, getUserInfo, submitLogin}
