@@ -1,14 +1,14 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch } from "vue";
 import { createNamespacedHelpers } from 'vuex';
-import LoginField from "@/components/scoped/input/LoginField.vue";
 import LoginSubmitButton from "@/components/scoped/button/LoginSubmitButton.vue";
+import LoginField from "@/components/scoped/input/LoginField.vue";
 import { IUserLogin } from "@/views/login/index";
 const { mapGetters, mapActions } = createNamespacedHelpers("auth");
 
 const SignInPage = defineComponent({
   name: "SignInPage",
-  components : { LoginSubmitButton, LoginField },
+  components : { LoginField, LoginSubmitButton,  },
   props :{},
   computed: {
     ...mapGetters({

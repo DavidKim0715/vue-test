@@ -11,7 +11,7 @@ const LoginField = defineComponent({
     //variables
     const focusOnEmail = false
     const focusOnPwd = false
-    const user : IUserLogin= reactive({email : '', pwd: '' })
+    const user : IUserLogin = reactive({email : '', pwd : ''})
 
     const onEmail = computed(()=> this.user.email)
     const onPwd = computed(()=> this.user.pwd)
