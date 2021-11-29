@@ -13,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path : '/myInfo',
     name : 'MyInfo',
-    component : () => import(/* webpackChunkName: "MyInfoPage" */ '@/views/UserInfoPage.vue'),
+    component : () => import(/* webpackChunkName: "MyInfoPage" */ '@/views/userInfo/UserInfoPage.vue'),
     meta: {
       layout: 'AppLayoutDefault',
       requiredAuth : true
@@ -22,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path : '/config',
     name : 'Config',
-    component : () => import(/* webpackChunkName: "ConfigPage" */ '@/views/ConfigPage.vue'),
+    component : () => import(/* webpackChunkName: "ConfigPage" */ '@/views/config/ConfigPage.vue'),
     meta: {
       layout: 'AppLayoutDefault',
       requiredAuth : false

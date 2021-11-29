@@ -6,7 +6,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import SignInPage from "./SignInPage";
+import SignInPage from "../login/SignInPage";
 
 const SignUpPage = defineComponent({
   name: "SignUpPage",
