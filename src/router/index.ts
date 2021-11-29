@@ -33,7 +33,7 @@ const routes: Array<RouteRecordRaw> = [
     name : 'SignIn',
     component : () => import(/* webpackChunkName: "SignInPage" */ '@/views/login/SignInPage.vue'),
     meta: {
-      layout: "AppLayoutDefault",
+      layout: "AppLayoutEmpty",
       requiredAuth : false
     },
   },

@@ -22,7 +22,7 @@ const SignInPage = defineComponent({
   },
   setup(props){
     //variables
-    let userInfo  = {}
+    let userInfo : IUserLogin = {}
 
     const getUserInfo = (info : IUserLogin) =>{
       userInfo = info
