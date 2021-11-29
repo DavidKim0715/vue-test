@@ -1,34 +1,13 @@
-<template>
-  <section>
-    <h2>Login</h2>
-    <form class="login_wrap" @submit.prevent="submitLogin">
-      <LoginInput @user-info="getUserInfo"/>
-      <div class="btn_login_register_wrap" >
-        <CommonButton
-          msg="로그인"
-          type="submit"
-        />
-        <CommonButton
-          msg="가입하기"
-        />
-      </div>
-    </form>
-  </section>
-</template>
-
-<script>
-
-import { computed, defineComponent, reactive, toRefs, watch } from "vue";
+<script lang="ts">
+import { defineComponent, reactive, toRefs, watch } from "vue";
 import { createNamespacedHelpers } from 'vuex';
+import LoginField from "../../components/scoped/input/LoginField";
+import LoginSubmitButton from "@/components/scoped/button/LoginSubmitButton.vue";
 const { mapGetters, mapActions } = createNamespacedHelpers("auth");
-
-import LoginInput from "../../components/input/LoginInput";
-import CommonButton from "../../components/button/CommonButton";
-
 
 const SignInPage = defineComponent({
   name: "SignInPage",
-  components : { CommonButton, LoginInput  },
+  components : { LoginSubmitButton, LoginField },
   props :{},
   computed: {
     ...mapGetters({
@@ -55,10 +34,18 @@ const SignInPage = defineComponent({
         window.alert('로그인에 실패하셨습니다')
       }
     }
-
     //life-cycle
     return { userInfo, getUserInfo, submitLogin}
   }
 })
 export default SignInPage
 </script>
+<template>
+  <section class="login">
+    <h3>Login</h3>
+    <form class="login_wrap" @submit.prevent="submitLogin">
+      <LoginField @user-info="getUserInfo"/>
+    </form>
+    <login-submit-button />
+  </section>
+</template>

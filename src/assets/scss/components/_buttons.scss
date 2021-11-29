@@ -1,19 +1,36 @@
 // 버튼 관련 변수
 .btn_normal{
-  border-radius: 6px;
-  border: solid 1px rgba(0,0,0,.15);
-  background-color: #03c75a;
-  padding: 17px 0 15px;
+
   .btn_text{
-    color: #fff;
-    line-height: 26px;
-    font-size: 22px;
-    font-weight: 700;
+
   }
 }
 .ripple{
 
 }
+
+.bx_direction_wrapper{
+  display: flex;
+  justify-content: space-between;
+  .bx_prev{
+    background: url("https://res.kurly.com/pc/service/main/1908/ico_prev1_x2.png");
+    background-size: 52px 52px;
+    opacity: 0.5;
+  }
+  .bx_next{
+    background: url("https://res.kurly.com/pc/service/main/1908/ico_next1_x2.png");
+    background-size: 52px 52px;
+    opacity: 0.5;
+  }
+}
+
+.btn_login{
+  &.is_focus{
+    background: #4868e1;
+    color: #fff;
+  }
+}
+
 // … 버튼 관련 include
 // - 믹스인
 // - 플레이스홀더

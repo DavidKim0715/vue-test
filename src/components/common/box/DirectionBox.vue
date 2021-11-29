@@ -1,17 +1,16 @@
 <template>
-  <header>
-    <router-link to="/">
-      <img src="@/assets/logo.png" alt="this is page header" />
-    </router-link>
-
-  </header>
+  <div class="bx_direction_wrapper">
+    <a class="bx_prev">Prev</a>
+    <a class="bx_next">Next</a>
+  </div>
 </template>
 
 <script>
+
 import { computed, defineComponent } from "vue";
 
-const Header = defineComponent({
-  name: "Header",
+const DirectionBox = defineComponent({
+  name: "DirectionBox",
   components : {  },
   props :{},
   emits : {},
@@ -21,14 +20,12 @@ const Header = defineComponent({
       return 0
     })
     //methods
-    const onClickLogo = () => {
-      return
-    }
+
     //computed
 
     //life-cycle
-    return {onClickLogo}
+    return {} // template에 사용될 getter
   }
 })
-export default Header
+export default DirectionBox
 </script>
