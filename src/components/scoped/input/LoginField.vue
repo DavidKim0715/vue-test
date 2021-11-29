@@ -1,3 +1,29 @@
+<script lang="ts">
+import { computed, defineComponent, onMounted, onUpdated, reactive, watch } from "vue";
+import { IUserLogin } from "@/views/login";
+
+const LoginField = defineComponent({
+  name: "LoginField",
+  components : {   },
+  props :{
+  },
+  setup(props,){
+    //variables
+    const focusOnEmail = false
+    const focusOnPwd = false
+    const user : IUserLogin= reactive({email : '', pwd: '' })
+
+    const onEmail = computed(()=> this.user.email)
+    const onPwd = computed(()=> this.user.pwd)
+
+    //life-cycle
+
+    return { user, onEmail, onPwd , focusOnEmail, focusOnPwd} // template에 사용될 getter
+  }
+})
+export default LoginField
+</script>
+
 <template>
   <ul class="id_pw_wrap" @change="$emit('user-info',user)">
     <li >
@@ -36,27 +62,3 @@
   </ul>
 </template>
 
-<script>
-import { computed, defineComponent, onMounted, onUpdated, reactive, watch } from "vue";
-
-const LoginField = defineComponent({
-  name: "LoginField",
-  components : {   },
-  props :{
-  },
-  setup(props,){
-    //variables
-    const focusOnEmail = false
-    const focusOnPwd = false
-    const user= reactive({email : '', pwd: '' })
-
-    const onEmail = computed(()=> this.user.email)
-    const onPwd = computed(()=> this.user.pwd)
-
-    //life-cycle
-
-    return { user, onEmail, onPwd , focusOnEmail, focusOnPwd} // template에 사용될 getter
-  }
-})
-export default LoginField
-</script>
